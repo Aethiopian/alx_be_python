@@ -1,7 +1,20 @@
+
+
 # Prompt for a single task
-task = input("Enter a task description: ")
-priority = input("Enter the task's priority (high, medium, low): ").lower()
-time_bound = input("Is the task time-sensitive? (yes or no): ").lower()
+task = input("Enter a task description: ").strip()
+if not task:
+    print("Error: Task description cannot be empty.")
+    exit()
+
+priority = input("Enter the task's priority (high, medium, low): ").lower().strip()
+if priority not in ['high', 'medium', 'low']:
+    print("Error: Invalid priority level. Please enter high, medium, or low.")
+    exit()
+
+time_bound = input("Is the task time-sensitive? (yes or no): ").lower().strip()
+if time_bound not in ['yes', 'no']:
+    print("Error: Please answer with 'yes' or 'no'.")
+    exit()
 
 # Process the task based on priority and time sensitivity
 match priority:
@@ -12,7 +25,7 @@ match priority:
     case "low":
         reminder = f"Reminder: '{task}' is a low priority task."
     case _:
-        reminder = "Error: Invalid priority level. Please enter high, medium, or low."
+        reminder = "Error: Invalid priority level."
 
 # Modify the reminder if the task is time-bound
 if time_bound == "yes":
