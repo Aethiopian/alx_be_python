@@ -1,4 +1,9 @@
+import os
 
+# Check if the script file exists and is not empty
+if not os.path.exists(__file__) or os.path.getsize(__file__) == 0:
+    print("Error: The script file does not exist or is empty.")
+    exit()
 
 # Prompt for a single task
 task = input("Enter a task description: ").strip()
