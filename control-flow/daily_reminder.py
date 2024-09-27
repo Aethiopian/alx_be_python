@@ -6,17 +6,19 @@ if not os.path.exists(__file__) or os.path.getsize(__file__) == 0:
     exit()
 
 # Prompt for a single task
-task = input("Enter a task description: ").strip()
+task = input("Enter your task: ").strip()
 if not task:
     print("Error: Task description cannot be empty.")
     exit()
 
-priority = input("Enter the task's priority (high, medium, low): ").lower().strip()
+# Prompt for the task's priority
+priority = input("Priority (high/medium/low): ").lower().strip()
 if priority not in ['high', 'medium', 'low']:
     print("Error: Invalid priority level. Please enter high, medium, or low.")
     exit()
 
-time_bound = input("Is the task time-sensitive? (yes or no): ").lower().strip()
+# Prompt for time sensitivity
+time_bound = input("Is it time-bound? (yes/no): ").lower().strip()
 if time_bound not in ['yes', 'no']:
     print("Error: Please answer with 'yes' or 'no'.")
     exit()
