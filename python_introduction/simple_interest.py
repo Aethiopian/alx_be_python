@@ -7,4 +7,4 @@ time = 3     # Time (in years)
 interest = principal * rate * time
 
 # Print the result
-print(f"The simple interest earned on an investment of {P} at an interest rate of {R*100}% over {T} years is {I}.")
+print(f"The simple interest earned on an investment of {principal} at an interest rate of {rate*100}% over {time} years is {interest}.")
