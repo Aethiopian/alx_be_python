@@ -8,7 +8,7 @@ if os.stat(__file__).st_size == 0:
 
 # Function to display menu
 def display_menu():
-    print("\nShopping List Manager")
+    print("\nShopping List Manager")  # Correct print statement
     print("1. Add item")
     print("2. Remove item")
     print("3. View list")
