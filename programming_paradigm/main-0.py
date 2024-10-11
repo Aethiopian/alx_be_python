@@ -1,36 +1,32 @@
 import sys
 from bank_account import BankAccount
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python3 main-0.py <operation> [amount]")
-        return
+# Create an instance of BankAccount
+account = BankAccount()
 
-    # Initialize a bank account with a default balance
-    account = BankAccount()
+# Example operations based on command line arguments
+if len(sys.argv) < 2:
+    print("Usage: python3 main-0.py <operation> [amount]")
+    sys.exit(1)
 
-    # Parse the operation from command line arguments
-    operation = sys.argv[1].lower()
+operation = sys.argv[1].lower()
 
-    if operation == "deposit":
-        if len(sys.argv) == 3:
-            amount = float(sys.argv[2])
-            account.deposit(amount)
-        else:
-            print("Please provide an amount to deposit.")
-    
-    elif operation == "withdraw":
-        if len(sys.argv) == 3:
-            amount = float(sys.argv[2])
-            account.withdraw(amount)
-        else:
-            print("Please provide an amount to withdraw.")
-
-    elif operation == "balance":
-        account.display_balance()
-
+if operation == "deposit" and len(sys.argv) == 3:
+    amount = float(sys.argv[2])
+    if account.deposit(amount):
+        print(f"Deposited: {amount}")
     else:
-        print("Invalid operation. Use 'deposit', 'withdraw', or 'balance'.")
+        print("Invalid deposit amount.")
+        
+elif operation == "withdraw" and len(sys.argv) == 3:
+    amount = float(sys.argv[2])
+    if account.withdraw(amount):
+        print(f"Withdrew: {amount}")
+    else:
+        print("Invalid withdrawal amount or insufficient funds.")
 
-if __name__ == "__main__":
-    main()
+elif operation == "balance":
+    account.display_balance()
+
+else:
+    print("Invalid operation. Use 'deposit', 'withdraw', or 'balance'.")
